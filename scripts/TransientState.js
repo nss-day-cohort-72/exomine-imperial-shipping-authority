@@ -1,10 +1,14 @@
 
-const planetsTransientstate ={
+const  resetPlanetsTransientstate ={
     mineralsId: 0,
     planetsId:0,
-    active: false
+    amount:0
 }
+let planetTreansientState = {...resetPlanetsTransientstate}
 
+export const setmineralsId = (currentState)=>{
+    planetTreansientState.mineralsId = currentState
+}
 export const setFacility = (facilityId) => {
     state.selectedFacility = facilityId
     document.dispatchEvent(new CustomEvent("stateChanged"))
