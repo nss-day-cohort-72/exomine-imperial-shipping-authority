@@ -1,5 +1,7 @@
 
-export const facilityOptions = async () => {
+export const FacilityOptions = async () => {
+
+
     const response = await fetch("http://localhost:8088/facilities");
     const facilities = await response.json();
 
