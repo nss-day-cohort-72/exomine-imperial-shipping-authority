@@ -162,5 +162,54 @@
             "active": true
         }
     ],
-    "planetInventories": []
+    "planetInventories": [
+        {
+            "id": 1,
+            "planetsId": 1,
+            "mineralsId": 1,
+            "amount": 100
+        },
+        {
+            "id": 2,
+            "planetsId": 1,
+            "mineralsId": 2,
+            "amount": 50
+        },
+        {
+            "id": 3,
+            "planetsId": 2,
+            "mineralsId": 3,
+            "amount": 200
+        },
+        {
+            "id": 4,
+            "planetsId": 2,
+            "mineralsId": 4,
+            "amount": 300
+        },
+        {
+            "id": 5,
+            "planetsId": 3,
+            "mineralsId": 5,
+            "amount": 400
+        },
+        {
+            "id": 6,
+            "planetsId": 3,
+            "mineralsId": 1,
+            "amount": 250
+        },
+        {
+            "id": 7,
+            "planetsId": 4,
+            "mineralsId": 2,
+            "amount": 150
+        },
+        {
+            "id": 8,
+            "planetsId": 4,
+            "mineralsId": 3,
+            "amount": 350
+        }
+    ]
 }
