@@ -18,30 +18,28 @@ export const FacilityOptions = async () => {
     return facilityOptionsHTML;
 }
 
-export const mineralOptions = async (facilityId, facilityName) => {
-    const response = await fetch("http://localhost:8088/facilityInventories");
+export const mineralOptions = async (facilityId) => {
+    const response = await fetch("http://localhost:8088/facilityInventories?_expand=facilities&_expand=minerals");
     const facilityInventories = await response.json();
     const mineralResponse = await fetch("http://localhost:8088/minerals");
     const minerals = await mineralResponse.json();
 
+   
+   
+   
+   
+   
     const selectedFacilityInventory = facilityInventories.filter(inventory => inventory.facilitiesId === facilityId && inventory.amount > 0);
+    const facilityName = selectedFacilityInventory[0].facilities.name
 
     let mineralOptionsHTML = `<h3>Facility Minerals for ${facilityName}</h3>`;
 
     mineralOptionsHTML += selectedFacilityInventory.map(inventory => {
-        const mineral = minerals.find(min => min.id === inventory.mineralId);
         return `<div>
-                    <input type='radio' name='mineral' value='${mineral.id}' /> ${mineral.name}
+                    <input type='radio' name='mineral' value='${inventory.minerals.id}' /> ${inventory.amount} tons left of ${inventory.minerals.name}
                 </div>`;
     }).join("");
 
-    return mineralOptionsHTML;
+    document.getElementById('facility_minerals-container').innerHTML = mineralOptionsHTML;
 }
 
-// document.getElementById('facilityDropdown').addEventListener('change', async (event) => {
-//     const selectedFacilityId = parseInt(event.target.value);
-
-//     const mineralOptionsHTML = await mineralOptions(selectedFacilityId);
-
-//     document.getElementById('mineralOptionsContainer').innerHTML = mineralOptionsHTML;
-// });
