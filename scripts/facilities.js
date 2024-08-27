@@ -18,7 +18,7 @@ export const FacilityOptions = async () => {
     return facilityOptionsHTML;
 }
 
-export const mineralOptions = async (facilityId) => {
+export const mineralOptions = async (facilityId, facilityName) => {
     const response = await fetch("http://localhost:8088/facilityInventories");
     const facilityInventories = await response.json();
     const mineralResponse = await fetch("http://localhost:8088/minerals");
