@@ -1,5 +1,15 @@
-const state = {
+const planetsTransientstate ={
+    id: 1,
+    mineralsId: 0,
+    planetsId:0,
+    active: false
+}
 
+export const setMineralsId = (currentState)=> {
+    planetsTransientstate.mineralsId = currentState
+}
+export const setPlanetsId = (currentState) => {
+    planetsTransientstate.planetsId = currentState
 }
 
 export const setFacility = (facilityId) => {
