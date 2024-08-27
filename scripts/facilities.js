@@ -38,10 +38,10 @@ export const mineralOptions = async (facilityId) => {
     return mineralOptionsHTML;
 }
 
-document.getElementById('facilityDropdown').addEventListener('change', async (event) => {
-    const selectedFacilityId = parseInt(event.target.value);
+// document.getElementById('facilityDropdown').addEventListener('change', async (event) => {
+//     const selectedFacilityId = parseInt(event.target.value);
 
-    const mineralOptionsHTML = await mineralOptions(selectedFacilityId);
+//     const mineralOptionsHTML = await mineralOptions(selectedFacilityId);
 
-    document.getElementById('mineralOptionsContainer').innerHTML = mineralOptionsHTML;
-});
+//     document.getElementById('mineralOptionsContainer').innerHTML = mineralOptionsHTML;
+// });

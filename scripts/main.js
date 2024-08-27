@@ -20,7 +20,7 @@ const render = async () => {
                     <div id="facility-choices" class="">
                      
                         <!--FACILITY INPUT HTML-->
-                        ${facilitiesHTML
+                        ${facilitiesHTML}
                     </div> 
                 </div>
                 <div id="planet-minerals" class=" col-md-4 p-4 mb-4 container-fluid">
