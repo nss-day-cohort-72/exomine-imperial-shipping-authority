@@ -1,10 +1,11 @@
-import { FacilityOptions } from "./facilities.js";
+import { FacilityOptions, mineralOptions } from "./facilities.js";
 import { createGovernorDropdown } from "./Governors.js";
 import { handleGovernorSelection } from "./Planets.js";
 
 const render = async () => {
     const governorsHTML = await createGovernorDropdown();
     const facilitiesHTML = await FacilityOptions()
+    
 
     let html = `
        <header class="header m-4 text-center">
@@ -52,6 +53,14 @@ const render = async () => {
             const selectedGovernorId = event.target.value;
             handleGovernorSelection(selectedGovernorId);
         });
+        document.getElementById('facilityDropdown').addEventListener('change', async (event) => {
+            const selectedFacilityId = parseInt(event.target.value);
+        
+            const mineralOptionsHTML = await mineralOptions(selectedFacilityId);
+        
+            
+        });
+        
     }
     
     render();

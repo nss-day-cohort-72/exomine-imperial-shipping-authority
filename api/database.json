@@ -24,49 +24,49 @@
     "facilityInventories": [
         {
             "id": 1,
-            "mineralId": 1,
+            "mineralsId": 1,
             "facilitiesId": 1,
             "amount": 3
         },
         {
             "id": 2,
-            "mineralId": 2,
+            "mineralsId": 2,
             "facilitiesId": 2,
             "amount": 5
         },
         {
             "id": 3,
-            "mineralId": 3,
+            "mineralsId": 3,
             "facilitiesId": 3,
             "amount": 2
         },
         {
             "id": 4,
-            "mineralId": 4,
+            "mineralsId": 4,
             "facilitiesId": 4,
             "amount": 8
         },
         {
             "id": 5,
-            "mineralId": 5,
+            "mineralsId": 5,
             "facilitiesId": 1,
             "amount": 10
         },
         {
             "id": 6,
-            "mineralId": 1,
+            "mineralsId": 1,
             "facilitiesId": 2,
             "amount": 7
         },
         {
             "id": 7,
-            "mineralId": 2,
+            "mineralsId": 2,
             "facilitiesId": 3,
             "amount": 4
         },
         {
             "id": 8,
-            "mineralId": 3,
+            "mineralsId": 3,
             "facilitiesId": 4,
             "amount": 6
         }
