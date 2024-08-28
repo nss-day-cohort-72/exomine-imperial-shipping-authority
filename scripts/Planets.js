@@ -12,7 +12,7 @@ export const handleGovernorSelection = async (governorId) => {
     const selectedPlanet = governors.filter(governor => governor.id  === parseInt(governorId));
     const planetName = selectedPlanet[0].planets.name
     const planetId = selectedPlanet[0].planets.id
-    const selectedPlanetInventory = planetInventories.filter(inventory => inventory.planetsId === planetId)
+    const selectedPlanetInventory = planetInventories.filter(inventory => inventory.planetsId === planetId && inventory.amount > 0)
 
     let mineralOptionsHTML = `<h3>${planetName} Minerals</h3>
                                 <ul>`;
@@ -24,5 +24,6 @@ export const handleGovernorSelection = async (governorId) => {
 
     document.getElementById('planet-minerals').innerHTML = mineralOptionsHTML;
 }
+
 
 

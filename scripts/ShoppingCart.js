@@ -14,7 +14,7 @@ export const ShoppingCart = async () => {
     if(selectedMineral){
         cartHTML += `
         <div>
-            <p><strong>Mineral</strong>${selectedMineral.name}</p>
+            <p><strong>Mineral</strong> ${selectedMineral.name}</p>
             <p><strong>Amount</strong> 1 ton</p>
         </div>`
         
