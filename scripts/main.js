@@ -1,10 +1,13 @@
 import { FacilityOptions, mineralOptions } from "./facilities.js";
 import { createGovernorDropdown } from "./Governors.js";
 import { handleGovernorSelection } from "./Planets.js";
+import { ShoppingCart } from "./ShoppingCart.js";
+import { setPlanetsId, setMineralsId, setFacilitiesId, resetTransientstate, getTransientState } from "./TransientState.js";
 
 const render = async () => {
     const governorsHTML = await createGovernorDropdown();
     const facilitiesHTML = await FacilityOptions()
+    const shoppingCartHTML = await ShoppingCart()
     
 
     let html = `
@@ -35,11 +38,7 @@ const render = async () => {
                         <h2 class="text-center">Facility Minerals</h2>
                     </div> 
                     <div id="shopping-cart" class="col-md-4 border p-4">
-                        <h2 class="text-center">space cart</h2>
-                        <ul class="list-group mb-3">
-                            <li class="list-group-item">item</li>
-                            <li class="list-group-item">item</li>
-                        </ul>
+                        ${shoppingCartHTML}
                         <button class="btn btn-primary w-100">submit</button>
                     </div>   
                 </div>
@@ -50,17 +49,51 @@ const render = async () => {
         DOMtarget.innerHTML = html;
     
         document.getElementById('governorDropdown').addEventListener('change', (event) => {
+            const targetedGovernor = event.target
             const selectedGovernorId = event.target.value;
-            handleGovernorSelection(selectedGovernorId);
-        });
-        document.getElementById('facilityDropdown').addEventListener('change', async (event) => {
-            const selectedFacilityId = parseInt(event.target.value);
-        
-            const mineralOptionsHTML = await mineralOptions(selectedFacilityId);
-        
+            const planetId = parseInt(targetedGovernor[parseInt(selectedGovernorId)-1].dataset.planetid)
             
+            handleGovernorSelection(selectedGovernorId);
+            
+            
+            setPlanetsId(planetId)
+        });
+        const addMineralSelection =  async (event) => {
+            const selectedFacilityId = parseInt(event.target.value);
+            setFacilitiesId(selectedFacilityId)
+        
+            mineralOptions(selectedFacilityId);
+        
+        };
+        document.getElementById('facilityDropdown').addEventListener('change',addMineralSelection) 
+        document.getElementById('facilityDropdown').addEventListener('mineralChecked', (event) => {
+            const transientState = getTransientState()
+            mineralOptions(transientState.facilitiesId)
+        }) 
+        
+
+
+        document.addEventListener('change', (event) => {
+            if (event.target.name === "mineral") {
+                
+                const selectedMineral = event.target.value
+                
+    
+                setMineralsId(parseInt(selectedMineral))
+                dispatchEvent(new CustomEvent("mineralChecked"))
+                
+                render();
+                
+            }
+                // event.forEach((mineralInput) => {
+                // const selectedMineralId = parseInt(event.target.value);
+                // setMineralsId(selectedMineralId);
+                // render();
+                
+            // });
         });
         
     }
     
     render();
+    

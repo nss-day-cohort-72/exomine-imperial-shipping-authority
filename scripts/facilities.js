@@ -35,7 +35,7 @@ export const mineralOptions = async (facilityId) => {
     let mineralOptionsHTML = `<h3>Facility Minerals for ${facilityName}</h3>`;
 
     mineralOptionsHTML += selectedFacilityInventory.map(inventory => {
-        return `<div>
+        return `<div id="mineral-selection">
                     <input type='radio' name='mineral' value='${inventory.minerals.id}' /> ${inventory.amount} tons left of ${inventory.minerals.name}
                 </div>`;
     }).join("");
