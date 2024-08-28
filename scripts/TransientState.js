@@ -1,20 +1,30 @@
 
-const  resetPlanetsTransientstate ={
+const  resetstate ={
     mineralsId: 0,
     planetsId:0,
-    amount:0
+    facilitiesId:0
 }
-let planetTreansientState = {...resetPlanetsTransientstate}
-
-export const setmineralsId = (currentState)=>{
-    planetTreansientState.mineralsId = currentState
+let transientState = {...resetstate}
+document
+export const setPlanetsId = (currentPlanet)=>{
+    transientState.planetsId = currentPlanet
 }
-export const setFacility = (facilityId) => {
-    state.selectedFacility = facilityId
+export const setFacilitiesId = (currentFacility) => {
+    transientState.facilitiesId = currentFacility
     document.dispatchEvent(new CustomEvent("stateChanged"))
+}
+export const  setMineralsId = (currentMineral) =>{
+    transientState.mineralsId = currentMineral
+}
+export const getTransientState = () => {
+    return {...transientState}
+}
+export const resetTransientstate = () => {
+    transientState = {...resetstate}
 }
 
 export const purchaseMineral = () => {
+    document.addEventListener()
     /*
         Does the chosen governor's colony already own some of this mineral?
             - If yes, what should happen?
