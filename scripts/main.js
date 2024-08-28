@@ -2,7 +2,7 @@ import { FacilityOptions, mineralOptions } from "./facilities.js";
 import { createGovernorDropdown } from "./Governors.js";
 import { handleGovernorSelection } from "./Planets.js";
 import { ShoppingCart } from "./ShoppingCart.js";
-import { setPlanetsId, setMineralsId, setFacilitiesId, resetTransientstate, getTransientState } from "./TransientState.js";
+import { setPlanetsId, setMineralsId, setFacilitiesId, resetTransientstate, getTransientState, setGovernorsId } from "./TransientState.js";
 
 const render = async () => {
     const governorsHTML = await createGovernorDropdown();
@@ -37,10 +37,12 @@ const render = async () => {
                     <div id="facility_minerals-container" class="col-md-8 border p-4">
                         <h2 class="text-center">Facility Minerals</h2>
                     </div> 
-                    <div id="shopping-cart" class="col-md-4 border p-4">
+                    <div id="shopping-cart-section" class="col-md-4 border p-4">
+                        <div id="shopping-cart" >
                         ${shoppingCartHTML}
-                        <button class="btn btn-primary w-100">submit</button>
-                    </div>   
+                        </div>   
+                        <button id="purchase" class="btn btn-primary w-100">submit</button>
+                    </div>
                 </div>
             </div>
         </div>`;
@@ -54,6 +56,7 @@ const render = async () => {
             const planetId = parseInt(targetedGovernor[parseInt(selectedGovernorId)-1].dataset.planetid)
             
             handleGovernorSelection(selectedGovernorId);
+            setGovernorsId(selectedGovernorId)
             
             
             setPlanetsId(planetId)
@@ -66,14 +69,11 @@ const render = async () => {
         
         };
         document.getElementById('facilityDropdown').addEventListener('change',addMineralSelection) 
-        document.getElementById('facilityDropdown').addEventListener('mineralChecked', (event) => {
-            const transientState = getTransientState()
-            mineralOptions(transientState.facilitiesId)
-        }) 
+       
         
 
 
-        document.addEventListener('change', (event) => {
+        document.addEventListener('change', async (event) => {
             if (event.target.name === "mineral") {
                 
                 const selectedMineral = event.target.value
@@ -82,15 +82,10 @@ const render = async () => {
                 setMineralsId(parseInt(selectedMineral))
                 dispatchEvent(new CustomEvent("mineralChecked"))
                 
-                render();
+                document.getElementById('shopping-cart').innerHTML = await ShoppingCart()
                 
             }
-                // event.forEach((mineralInput) => {
-                // const selectedMineralId = parseInt(event.target.value);
-                // setMineralsId(selectedMineralId);
-                // render();
                 
-            // });
         });
         
     }
