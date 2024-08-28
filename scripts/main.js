@@ -18,7 +18,7 @@ const render = async () => {
             <div class="row">
                 <div class="col-md-6">
                     <div id="governor-choices" class="mb-4">
-                        <p class="mt-4"> governors </p>
+                        <p class="mt-4"> Governors </p>
                         ${governorsHTML}
                     </div>
                     <div id="facility-choices" class="">
