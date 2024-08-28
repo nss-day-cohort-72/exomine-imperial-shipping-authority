@@ -1,166 +1,286 @@
 {
-    "minerals":[
-        {
-            "id":1,
-            "name": "Iron"
-        },
-        {
-            "id": 2,
-            "name": "Copper"
-        },
-        {
-            "id": 3,
-            "name": "Gold"
-        },
-        {
-            "id": 4,
-            "name": "Silver"
-        },
-        {
-            "id": 5,
-            "name": "Zinc"
-        }
-    ],
-    "facilityInventories": [
-        {
-            "id": 1,
-            "mineralId": 1,
-            "facilitiesId": 1,
-            "amount": 3
-        },
-        {
-            "id": 2,
-            "mineralId": 2,
-            "facilitiesId": 2,
-            "amount": 5
-        },
-        {
-            "id": 3,
-            "mineralId": 3,
-            "facilitiesId": 3,
-            "amount": 2
-        },
-        {
-            "id": 4,
-            "mineralId": 4,
-            "facilitiesId": 4,
-            "amount": 8
-        },
-        {
-            "id": 5,
-            "mineralId": 5,
-            "facilitiesId": 1,
-            "amount": 10
-        },
-        {
-            "id": 6,
-            "mineralId": 1,
-            "facilitiesId": 2,
-            "amount": 7
-        },
-        {
-            "id": 7,
-            "mineralId": 2,
-            "facilitiesId": 3,
-            "amount": 4
-        },
-        {
-            "id": 8,
-            "mineralId": 3,
-            "facilitiesId": 4,
-            "amount": 6
-        }
-    ],
-    "governers": [
-        {
-            "id": 1,
-            "name": "Arnold schwartzenager",
-            "planetsId": 1,
-            "active": true
-        },
-        {
-            "id": 2,
-            "name": "Bruce Willis",
-            "planetsId": 2,
-            "active": true
-        },
-        {
-            "id": 3,
-            "name": "Sylvester Stallone",
-            "planetsId": 3,
-            "active": true
-        },
-        {
-            "id": 4,
-            "name": "Jean-Claude Van Damme",
-            "planetsId": 4,
-            "active": true
-        },
-        {
-            "id": 5,
-            "name": "Chuck Norris",
-            "planetsId": 1,
-            "active": true
-        },
-        {
-            "id": 6,
-            "name": "Dwayne Johnson",
-            "planetsId": 2,
-            "active": true
-        },
-        {
-            "id": 7,
-            "name": "Jason Statham",
-            "planetsId": 3,
-            "active": false
-        },
-        {
-            "id": 8,
-            "name": "Vin Diesel",
-            "planetsId": 4,
-            "active": true
-        }
-    ],
-    "planets": [
-        {
-            "id": 1,
-            "name": "Earth"
-        },
-        {
-            "id": 2,
-            "name": "Mars"
-        },
-        {
-            "id": 3,
-            "name": "Venus"
-        },
-        {
-            "id": 4,
-            "name": "Jupiter"
-        }
-    ],
-    "facilities":[
-        {
-            "id": 1,
-            "name": "minerals-r-us",
-            "active":true
-
-        },
-        {
-            "id": 2,
-            "name": "Rocky Resources",
-            "active": true
-        },
-        {
-            "id": 3,
-            "name": "Gemstone Goods",
-            "active": true
-        },
-        {
-            "id": 4,
-            "name": "Crystal Kingdom",
-            "active": true
-        }
-    ],
-    "planetInventories": []
+  "minerals": [
+    {
+      "id": 1,
+      "name": "Iron"
+    },
+    {
+      "id": 2,
+      "name": "Copper"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Zinc"
+    }
+  ],
+  "facilityInventories": [
+    {
+      "id": 1,
+      "mineralsId": 1,
+      "facilitiesId": 1,
+      "amount": 3
+    },
+    {
+      "id": 2,
+      "mineralsId": 2,
+      "facilitiesId": 2,
+      "amount": 5
+    },
+    {
+      "id": 3,
+      "mineralsId": 3,
+      "facilitiesId": 3,
+      "amount": 2
+    },
+    {
+      "id": 4,
+      "mineralsId": 4,
+      "facilitiesId": 4,
+      "amount": 8
+    },
+    {
+      "id": 5,
+      "mineralsId": 5,
+      "facilitiesId": 1,
+      "amount": 10
+    },
+    {
+      "id": 6,
+      "mineralsId": 1,
+      "facilitiesId": 2,
+      "amount": 7
+    },
+    {
+      "amount": 2,
+      "facilitiesId": 3,
+      "mineralsId": 2,
+      "id": 7
+    },
+    {
+      "id": 8,
+      "mineralsId": 3,
+      "facilitiesId": 4,
+      "amount": 6
+    }
+  ],
+  "governors": [
+    {
+      "id": 1,
+      "name": "Arnold schwartzenager",
+      "planetsId": 1,
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "Bruce Willis",
+      "planetsId": 2,
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Sylvester Stallone",
+      "planetsId": 3,
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "Jean-Claude Van Damme",
+      "planetsId": 4,
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "Chuck Norris",
+      "planetsId": 1,
+      "active": true
+    },
+    {
+      "id": 6,
+      "name": "Dwayne Johnson",
+      "planetsId": 2,
+      "active": true
+    },
+    {
+      "id": 7,
+      "name": "Jason Statham",
+      "planetsId": 3,
+      "active": false
+    },
+    {
+      "id": 8,
+      "name": "Vin Diesel",
+      "planetsId": 4,
+      "active": true
+    }
+  ],
+  "planets": [
+    {
+      "id": 1,
+      "name": "Earth"
+    },
+    {
+      "id": 2,
+      "name": "Mars"
+    },
+    {
+      "id": 3,
+      "name": "Venus"
+    },
+    {
+      "id": 4,
+      "name": "Jupiter"
+    }
+  ],
+  "facilities": [
+    {
+      "id": 1,
+      "name": "minerals-r-us",
+      "active": false
+    },
+    {
+      "id": 2,
+      "name": "Rocky Resources",
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Gemstone Goods",
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "Crystal Kingdom",
+      "active": true
+    }
+  ],
+  "planetInventories": [
+    {
+      "id": 1,
+      "planetsId": 1,
+      "mineralsId": 1,
+      "amount": 3
+    },
+    {
+      "amount": 1,
+      "planetsId": 1,
+      "mineralsId": 2,
+      "id": 2
+    },
+    {
+      "id": 3,
+      "planetsId": 1,
+      "mineralsId": 3,
+      "amount": 0
+    },
+    {
+      "id": 4,
+      "planetsId": 1,
+      "mineralsId": 4,
+      "amount": 0
+    },
+    {
+      "id": 5,
+      "planetsId": 1,
+      "mineralsId": 5,
+      "amount": 10
+    },
+    {
+      "id": 6,
+      "planetsId": 2,
+      "mineralsId": 1,
+      "amount": 7
+    },
+    {
+      "amount": 7,
+      "planetsId": 2,
+      "mineralsId": 2,
+      "id": 7
+    },
+    {
+      "amount": 3,
+      "planetsId": 2,
+      "mineralsId": 3,
+      "id": 8
+    },
+    {
+      "id": 9,
+      "planetsId": 2,
+      "mineralsId": 4,
+      "amount": 0
+    },
+    {
+      "id": 10,
+      "planetsId": 2,
+      "mineralsId": 5,
+      "amount": 0
+    },
+    {
+      "id": 11,
+      "planetsId": 3,
+      "mineralsId": 1,
+      "amount": 0
+    },
+    {
+      "amount": 5,
+      "planetsId": 3,
+      "mineralsId": 2,
+      "id": 12
+    },
+    {
+      "id": 13,
+      "planetsId": 3,
+      "mineralsId": 3,
+      "amount": 2
+    },
+    {
+      "id": 14,
+      "planetsId": 3,
+      "mineralsId": 4,
+      "amount": 0
+    },
+    {
+      "id": 15,
+      "planetsId": 3,
+      "mineralsId": 5,
+      "amount": 0
+    },
+    {
+      "id": 16,
+      "planetsId": 4,
+      "mineralsId": 1,
+      "amount": 0
+    },
+    {
+      "id": 17,
+      "planetsId": 4,
+      "mineralsId": 2,
+      "amount": 0
+    },
+    {
+      "id": 18,
+      "planetsId": 4,
+      "mineralsId": 3,
+      "amount": 6
+    },
+    {
+      "id": 19,
+      "planetsId": 4,
+      "mineralsId": 4,
+      "amount": 8
+    },
+    {
+      "id": 20,
+      "planetsId": 4,
+      "mineralsId": 5,
+      "amount": 0
+    }
+  ]
 }
