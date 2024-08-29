@@ -28,11 +28,15 @@ const render = async () => {
             <div class="row">
                 <div class="col-md-6">
                     <div id="governor-choices" class="mb-4">
-                        <p class="mt-4"> Governors </p>
-                        ${governorsHTML}
-                        <div id="governor-portrait" class="col-md-4 text-center mt-4">
-                    <h2>Official Governor Portrait</h2>
-                    <img id="portrait-image" src="" alt="Governor Portrait" class="portrait-img">
+                        <div class="row">
+                            <div class="col">
+                            <p class="mt-4"> Governors </p>
+                            ${governorsHTML}
+                            </div>
+                            <div id="governor-portrait" class="col-md-6 text-center mt-4">
+                        <h2>Official Governor Portrait</h2>
+                        <img id="portrait-image" src="" alt="Governor Portrait" class="portrait-img">
+                        </div>
                 </div>
                     </div>
                     <div id="facility-choices" class="">
