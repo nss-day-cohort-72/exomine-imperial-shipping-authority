@@ -96,7 +96,22 @@ const render = async () => {
             const selectedMineral = event.target.value;
             setMineralsId(parseInt(selectedMineral));
             dispatchEvent(new CustomEvent("mineralChecked"));
-            document.getElementById('shopping-cart').innerHTML = await ShoppingCart();
+            const transientState = getTransientState();
+            const currentMineral = transientState.mineralsId
+            const currentFacility = transientState.facilitiesId
+            const currentGovernor = parseInt(transientState.governorsId)
+            const dataObject = { amount: 1, facilitiesId: currentFacility, mineralsId: currentMineral, governorsId: currentGovernor };
+    
+            await fetch(`http://localhost:8088/shoppingCart`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataObject)
+            });
+            dispatchEvent(new CustomEvent("mineralChecked"));
+                document.getElementById('shopping-cart').innerHTML = await ShoppingCart();
+                
         }
     });
 }
