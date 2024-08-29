@@ -59,7 +59,7 @@
       "id": 6
     },
     {
-      "amount": 2,
+      "amount": 1,
       "facilitiesId": 3,
       "mineralsId": 2,
       "id": 7
@@ -229,7 +229,7 @@
       "id": 11
     },
     {
-      "amount": 5,
+      "amount": 6,
       "planetsId": 3,
       "mineralsId": 2,
       "id": 12

@@ -43,23 +43,39 @@ export const purchaseMineral = async () => {
     const response = await fetch(`http://localhost:8088/planetInventories`)
     const planetInventory = await response.json()
     const inventoryMatch = planetInventory.filter(inventory => inventory.planetsId === currentPlanet && inventory.mineralsId === currentMineral)
-    const amountAddOne = (inventoryMatch[0].amount) + 1
-    const dataObject = {amount: amountAddOne, planetsId: currentPlanet, mineralsId: currentMineral}
     const facilitiesresponse = await fetch(`http://localhost:8088/facilityInventories`)
     const facilitiesInventory = await facilitiesresponse.json()
     const facilitiesInventorymatch = facilitiesInventory.filter(inventory => inventory.facilitiesId === currentFacility && inventory.mineralsId === currentMineral)
     const amountSubtractOne = (facilitiesInventorymatch[0].amount) - 1 
     const facilitiesDataObject = {amount: amountSubtractOne, facilitiesId: currentFacility, mineralsId: currentMineral}
 
-    
+    if (inventoryMatch.length > 0) {
+        // If match exists, update the existing inventory with a PUT request
+        const amountAddOne = (inventoryMatch[0].amount) + 1;
+        const dataObject = { amount: amountAddOne, planetsId: currentPlanet, mineralsId: currentMineral };
+        
+        await fetch(`http://localhost:8088/planetInventories/${inventoryMatch[0].id}`, {
+            method: 'PUT', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataObject)
+        });
 
-   const putResponse = await fetch(`http://localhost:8088/planetInventories/${inventoryMatch[0].id}`,{
-    method: 'PUT', 
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(dataObject)
-    });
+    } else {
+        // If no match exists, create a new inventory with a POST request
+        const dataObject = { amount: 1, planetsId: currentPlanet, mineralsId: currentMineral };
+    
+        await fetch(`http://localhost:8088/planetInventories`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataObject)
+        });
+    }
+
+   
 
     const facilitiesPutResponse = await fetch(`http://localhost:8088/facilityInventories/${facilitiesInventorymatch[0].id}`,{
         method: 'PUT', 
