@@ -35,7 +35,7 @@
       "id": 2
     },
     {
-      "amount": 0,
+      "amount": 1,
       "facilitiesId": 3,
       "mineralsId": 3,
       "id": 3
@@ -43,8 +43,7 @@
     {
       "amount": 4,
       "facilitiesId": 4,
-      "mineralsId": 4,
-      "id": 4
+      "amount": 8
     },
     {
       "id": 5,
@@ -53,16 +52,15 @@
       "amount": 10
     },
     {
-      "amount": 6,
-      "facilitiesId": 2,
+      "id": 6,
       "mineralsId": 1,
-      "id": 6
+      "facilitiesId": 2,
+      "amount": 7
     },
     {
       "amount": 1,
       "facilitiesId": 3,
-      "mineralsId": 2,
-      "id": 7
+      "amount": 4
     },
     {
       "id": 8,
@@ -166,19 +164,19 @@
       "id": 1,
       "planetsId": 1,
       "mineralsId": 1,
-      "amount": 3
+      "amount": 100
     },
     {
       "amount": 2,
       "planetsId": 1,
       "mineralsId": 2,
-      "id": 2
+      "amount": 50
     },
     {
-      "id": 3,
-      "planetsId": 1,
+      "amount": 201,
+      "planetsId": 2,
       "mineralsId": 3,
-      "amount": 0
+      "id": 3
     },
     {
       "amount": 1,
@@ -188,9 +186,9 @@
     },
     {
       "id": 5,
-      "planetsId": 1,
+      "planetsId": 3,
       "mineralsId": 5,
-      "amount": 10
+      "amount": 400
     },
     {
       "id": 6,
@@ -253,34 +251,16 @@
       "amount": 0
     },
     {
-      "id": 16,
-      "planetsId": 4,
-      "mineralsId": 1,
-      "amount": 0
-    },
-    {
-      "id": 17,
+      "id": 7,
       "planetsId": 4,
       "mineralsId": 2,
-      "amount": 0
+      "amount": 150
     },
     {
-      "id": 18,
+      "id": 8,
       "planetsId": 4,
       "mineralsId": 3,
-      "amount": 6
-    },
-    {
-      "id": 19,
-      "planetsId": 4,
-      "mineralsId": 4,
-      "amount": 8
-    },
-    {
-      "id": 20,
-      "planetsId": 4,
-      "mineralsId": 5,
-      "amount": 0
+      "amount": 350
     }
   ]
 }
