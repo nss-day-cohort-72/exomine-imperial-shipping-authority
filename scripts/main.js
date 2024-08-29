@@ -14,7 +14,7 @@ const render = async () => {
        <header class="header m-4 text-center">
             <h1 class="title">Solar System Mining Marketplace</h1>
         </header>
-        <div id="main-container" class="container-fluid bg-white">
+        <div id="main-container" class="container-fluid bg-black">
             <div class="row">
                 <div class="col-md-6">
                     <div id="governor-choices" class="mb-4">
@@ -24,6 +24,7 @@ const render = async () => {
                     <div id="facility-choices" class="">
                      
                         <!--FACILITY INPUT HTML-->
+                        <p class="mt-4"> Facilities </p>
                         ${facilitiesHTML}
                     </div> 
                 </div>
