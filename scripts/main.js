@@ -22,7 +22,7 @@ const render = async () => {
                         ${governorsHTML}
                     </div>
                     <div id="facility-choices" class="">
-                     
+                        <p class="mt-4"> Facilities </p>
                         <!--FACILITY INPUT HTML-->
                         ${facilitiesHTML}
                     </div> 
@@ -34,7 +34,7 @@ const render = async () => {
                     </ul>
                 </div>
                 <div class="row">
-                    <div id="facility_minerals-container" class="col-md-8 border p-4">
+                    <div id="facility_minerals-container" class="col-md-8 border  p-4">
                         <h2 class="text-center">Facility Minerals</h2>
                     </div> 
                     <div id="shopping-cart-section" class="col-md-4 border p-4">
