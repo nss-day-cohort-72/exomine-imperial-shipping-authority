@@ -41,7 +41,7 @@
       "id": 3
     },
     {
-      "amount": 7,
+      "amount": 4,
       "facilitiesId": 4,
       "mineralsId": 4,
       "id": 4
@@ -59,7 +59,7 @@
       "id": 6
     },
     {
-      "amount": 2,
+      "amount": 1,
       "facilitiesId": 3,
       "mineralsId": 2,
       "id": 7
@@ -181,10 +181,10 @@
       "amount": 0
     },
     {
-      "id": 4,
+      "amount": 1,
       "planetsId": 1,
       "mineralsId": 4,
-      "amount": 0
+      "id": 4
     },
     {
       "id": 5,
@@ -211,7 +211,7 @@
       "id": 8
     },
     {
-      "amount": 1,
+      "amount": 3,
       "planetsId": 2,
       "mineralsId": 4,
       "id": 9
@@ -229,7 +229,7 @@
       "id": 11
     },
     {
-      "amount": 5,
+      "amount": 6,
       "planetsId": 3,
       "mineralsId": 2,
       "id": 12
