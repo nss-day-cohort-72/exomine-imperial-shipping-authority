@@ -14,7 +14,7 @@ export const handleGovernorSelection = async (governorId) => {
     const planetId = selectedPlanet[0].planets.id
     const selectedPlanetInventory = planetInventories.filter(inventory => inventory.planetsId === planetId && inventory.amount > 0)
 
-    let mineralOptionsHTML = `<h3>${planetName} Minerals</h3>
+    let mineralOptionsHTML = `<h2>${planetName} Minerals</h2>
                                 <ul>`;
 
     mineralOptionsHTML += selectedPlanetInventory.map(inventory => {

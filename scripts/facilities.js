@@ -5,7 +5,7 @@ export const FacilityOptions = async () => {
     const response = await fetch("http://localhost:8088/facilities");
     const facilities = await response.json();
 
-    let facilityOptionsHTML = "<label for='facilityDropdown'>Choose a facility:</label><select id='facilityDropdown'>";
+    let facilityOptionsHTML = "<label for='facilityDropdown'></label><select id='facilityDropdown'>";
     
     const optionStringArray = facilities
     .filter(facility => facility.active)
@@ -36,7 +36,7 @@ export const mineralOptions = async (facilityId) => {
 
     mineralOptionsHTML += selectedFacilityInventory.map(inventory => {
         return `<div id="mineral-selection">
-                    <input type='radio' name='mineral' value='${inventory.minerals.id}' /> ${inventory.amount} tons left of ${inventory.minerals.name}
+                    <input type='radio' name='mineral' value='${inventory.minerals.id}' /> <label>${inventory.amount} tons left of ${inventory.minerals.name}</label>
                 </div>`;
     }).join("");
 
