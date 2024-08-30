@@ -29,78 +29,99 @@ export const setGovernorsId = (currentGovernor) => {
     transientState.governorsId = currentGovernor
 }
 
-document.addEventListener('click', (event) => {
+document.addEventListener('click', async(event) => {
     if (event.target.id === "purchase") {
         purchaseMineral()
-    }
-})
-export const purchaseMineral = async () => {
-    const transientState = getTransientState()
-    const currentPlanet = transientState.planetsId
-    const governorsId = transientState.governorsId
-    const currentMineral = transientState.mineralsId
-    const currentFacility = transientState.facilitiesId
-    const response = await fetch(`http://localhost:8088/planetInventories`)
-    const planetInventory = await response.json()
-    const inventoryMatch = planetInventory.filter(inventory => inventory.planetsId === currentPlanet && inventory.mineralsId === currentMineral)
-    const facilitiesresponse = await fetch(`http://localhost:8088/facilityInventories`)
-    const facilitiesInventory = await facilitiesresponse.json()
-    const facilitiesInventorymatch = facilitiesInventory.filter(inventory => inventory.facilitiesId === currentFacility && inventory.mineralsId === currentMineral)
-    const amountSubtractOne = (facilitiesInventorymatch[0].amount) - 1 
-    const facilitiesDataObject = {amount: amountSubtractOne, facilitiesId: currentFacility, mineralsId: currentMineral}
-
-    if (inventoryMatch.length > 0) {
-        // If match exists, update the existing inventory with a PUT request
-        const amountAddOne = (inventoryMatch[0].amount) + 1;
-        const dataObject = { amount: amountAddOne, planetsId: currentPlanet, mineralsId: currentMineral };
-        
-        await fetch(`http://localhost:8088/planetInventories/${inventoryMatch[0].id}`, {
-            method: 'PUT', 
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dataObject)
-        });
-
-    } else {
-        // If no match exists, create a new inventory with a POST request
-        const dataObject = { amount: 1, planetsId: currentPlanet, mineralsId: currentMineral };
-    
-        await fetch(`http://localhost:8088/planetInventories`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dataObject)
-        });
-    }
+        const response = await fetch(`http://localhost:8088/shoppingCart`);
+    const shoppingCart = await response.json();
 
    
+    for (const item of shoppingCart) {
+        await fetch(`http://localhost:8088/shoppingCart/${item.id}`, {
+            method: 'DELETE'
+        });
+    }
+    document.dispatchEvent(new CustomEvent("deletedShoppingCart"))
+        }
+})
+export const purchaseMineral = async () => {
+    const transientState = getTransientState();
+    const shoppingCartresponse = await fetch(`http://localhost:8088/shoppingCart?_expand=facilities&_expand=minerals&_expand=governors`);
+    let shoppingCartData = await shoppingCartresponse.json();
+    const response = await fetch(`http://localhost:8088/planetInventories`);
+    const planetInventory = await response.json();
 
-    const facilitiesPutResponse = await fetch(`http://localhost:8088/facilityInventories/${facilitiesInventorymatch[0].id}`,{
-        method: 'PUT', 
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(facilitiesDataObject)
-    })
+    let createdInventory = {};
 
-    handleGovernorSelection(governorsId)
-    mineralOptions(currentFacility)
-    /*
-        Does the chosen governor's colony already own some of this mineral?
-            - If yes, what should happen?
-            - If no, what should happen?
+    for (const purchase of shoppingCartData) {
+        let existingInventory = planetInventory.find(inventory =>
+            inventory.planetsId === purchase.governors.planetsId &&
+            inventory.mineralsId === purchase.minerals.id
+        );
 
-        Defining the algorithm for this method is traditionally the hardest
-        task for teams during this group project. It will determine when you
-        should use the method of POST, and when you should use PUT.
+        if (existingInventory) {
+            existingInventory.amount++;
+            await fetch(`http://localhost:8088/planetInventories/${existingInventory.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(existingInventory)
+            });
+        } else {
+            let newInventory = createdInventory[purchase.minerals.id];
 
-        Only the foolhardy try to solve this problem with code.
-    */
+            if (newInventory) {
+                newInventory.amount++;
+                await fetch(`http://localhost:8088/planetInventories/${newInventory.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(newInventory)
+                });
+            } else {
+                let dataObject = {
+                    amount: 1,
+                    mineralsId: purchase.minerals.id,
+                    planetsId: purchase.governors.planetsId
+                };
 
+                const postResponse = await fetch('http://localhost:8088/planetInventories', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dataObject)
+                });
 
+                newInventory = await postResponse.json();
+                createdInventory[purchase.minerals.id] = newInventory;
+            }
+        }
+    }
 
-    document.dispatchEvent(new CustomEvent("stateChanged"))
-}
+    
+    const facilitiesresponse = await fetch(`http://localhost:8088/facilityInventories`);
+    const facilitiesInventory = await facilitiesresponse.json();
+    shoppingCartData.forEach(purchase => {
+        facilitiesInventory.forEach(async inventory => {
+            if (inventory.facilitiesId === purchase.facilitiesId && inventory.mineralsId === purchase.minerals.id) {
+                inventory.amount--;
 
+                await fetch(`http://localhost:8088/facilityInventories/${inventory.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(inventory)
+                });
+            }
+        });
+    });
+
+    handleGovernorSelection(shoppingCartData[0].governorsId);
+    mineralOptions(transientState.facilitiesId);
+
+    document.dispatchEvent(new CustomEvent("stateChanged"));
+};

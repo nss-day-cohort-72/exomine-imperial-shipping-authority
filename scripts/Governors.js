@@ -6,7 +6,7 @@ export const createGovernorDropdown = async () => {
     let dropdownHTML = `<select id="governorDropdown">`;
 
     for (const governor of activeGovernors) {
-        dropdownHTML += `<option value="${governor.id}" data-planetId="${governor.planetsId}">${governor.name}</option>`;
+        dropdownHTML += `<option value="${governor.id}" data-planetid="${governor.planetsId}">${governor.name}</option>`;
     }
 
     dropdownHTML += `</select>`;

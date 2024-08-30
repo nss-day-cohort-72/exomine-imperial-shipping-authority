@@ -26,25 +26,19 @@
       "id": 1,
       "mineralsId": 1,
       "facilitiesId": 1,
-      "amount": 3
+      "amount": 20
     },
     {
-      "id": 2,
-      "mineralsId": 2,
+      "amount": 8,
       "facilitiesId": 2,
-      "amount": 5
+      "mineralsId": 2,
+      "id": 2
     },
     {
-      "amount": 0,
+      "amount": 15,
       "facilitiesId": 3,
-      "mineralsId": 3,
+      "mineralsId": 2,
       "id": 3
-    },
-    {
-      "amount": 4,
-      "facilitiesId": 4,
-      "mineralsId": 4,
-      "id": 4
     },
     {
       "id": 5,
@@ -53,22 +47,22 @@
       "amount": 10
     },
     {
-      "amount": 6,
+      "amount": 36,
       "facilitiesId": 2,
       "mineralsId": 1,
       "id": 6
     },
     {
-      "amount": 1,
-      "facilitiesId": 3,
-      "mineralsId": 2,
-      "id": 7
+      "amount": 49,
+      "facilitiesId": 4,
+      "mineralsId": 5,
+      "id": 8
     },
     {
-      "id": 8,
-      "mineralsId": 3,
+      "amount": 50,
       "facilitiesId": 4,
-      "amount": 6
+      "mineralsId": 5,
+      "id": 8
     }
   ],
   "governors": [
@@ -112,12 +106,6 @@
       "id": 7,
       "name": "Jason Statham",
       "planetsId": 3,
-      "active": false
-    },
-    {
-      "id": 8,
-      "name": "Vin Diesel",
-      "planetsId": 4,
       "active": true
     }
   ],
@@ -166,19 +154,19 @@
       "id": 1,
       "planetsId": 1,
       "mineralsId": 1,
-      "amount": 3
+      "amount": 101
     },
     {
-      "amount": 1,
+      "amount": 11,
       "planetsId": 1,
       "mineralsId": 2,
       "id": 2
     },
     {
-      "id": 3,
-      "planetsId": 1,
+      "amount": 202,
+      "planetsId": 2,
       "mineralsId": 3,
-      "amount": 0
+      "id": 3
     },
     {
       "amount": 1,
@@ -188,27 +176,27 @@
     },
     {
       "id": 5,
-      "planetsId": 1,
+      "planetsId": 3,
       "mineralsId": 5,
-      "amount": 10
+      "amount": 400
     },
     {
       "id": 6,
       "planetsId": 2,
       "mineralsId": 1,
-      "amount": 7
+      "amount": 16
     },
     {
-      "amount": 7,
-      "planetsId": 2,
+      "id": 7,
+      "planetsId": 4,
       "mineralsId": 2,
-      "id": 7
+      "amount": 175
     },
     {
-      "amount": 5,
-      "planetsId": 2,
+      "id": 8,
+      "planetsId": 4,
       "mineralsId": 3,
-      "id": 8
+      "amount": 352
     },
     {
       "amount": 3,
@@ -223,22 +211,22 @@
       "amount": 0
     },
     {
-      "amount": 1,
+      "amount": 2,
       "planetsId": 3,
       "mineralsId": 1,
       "id": 11
     },
     {
-      "amount": 6,
+      "amount": 9,
       "planetsId": 3,
       "mineralsId": 2,
       "id": 12
     },
     {
-      "id": 13,
+      "amount": 5,
       "planetsId": 3,
       "mineralsId": 3,
-      "amount": 2
+      "id": 13
     },
     {
       "id": 14,
@@ -253,34 +241,29 @@
       "amount": 0
     },
     {
-      "id": 16,
-      "planetsId": 4,
+      "amount": 2,
       "mineralsId": 1,
-      "amount": 0
+      "planetsId": 4,
+      "id": 16
     },
     {
-      "id": 17,
-      "planetsId": 4,
+      "amount": 3,
       "mineralsId": 2,
-      "amount": 0
+      "planetsId": 2,
+      "id": 17
     },
     {
-      "id": 18,
-      "planetsId": 4,
+      "amount": 3,
       "mineralsId": 3,
-      "amount": 6
+      "planetsId": 1,
+      "id": 18
     },
     {
-      "id": 19,
-      "planetsId": 4,
-      "mineralsId": 4,
-      "amount": 8
-    },
-    {
-      "id": 20,
-      "planetsId": 4,
+      "amount": 1,
       "mineralsId": 5,
-      "amount": 0
+      "planetsId": 4,
+      "id": 19
     }
-  ]
+  ],
+  "shoppingCart": []
 }
