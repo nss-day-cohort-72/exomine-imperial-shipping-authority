@@ -117,3 +117,6 @@ const render = async () => {
 }
 
 render();
+document.addEventListener("deletedShoppingCart", (event) => {
+    document.getElementById('shopping-cart').innerHTML = ""
+})
